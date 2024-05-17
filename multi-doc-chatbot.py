@@ -14,17 +14,17 @@ load_dotenv('.env')
 
 documents = []
 # Create a List of Documents from all of our files in the ./docs folder
-for file in os.listdir("docs"):
+for file in os.listdir("docsg"):
     if file.endswith(".pdf"):
-        pdf_path = "./docs/" + file
+        pdf_path = "./docsg/" + file
         loader = PyPDFLoader(pdf_path)
         documents.extend(loader.load())
     elif file.endswith('.docx') or file.endswith('.doc'):
-        doc_path = "./docs/" + file
+        doc_path = "./docsg/" + file
         loader = Docx2txtLoader(doc_path)
         documents.extend(loader.load())
     elif file.endswith('.txt'):
-        text_path = "./docs/" + file
+        text_path = "./docsg/" + file
         loader = TextLoader(text_path)
         documents.extend(loader.load())
 
